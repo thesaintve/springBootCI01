@@ -28,11 +28,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Stop current process
+    - name: Execute new version
       run: sh run_new_version.sh
-
-    - name: Execute Jar File
-      run: sudo java -jar /home/ubuntu/actions-runner/_work/springBootCI01/springBootCI01/target/democi-0.0.1-SNAPSHOT.jar &
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
