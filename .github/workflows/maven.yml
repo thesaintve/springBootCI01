@@ -29,10 +29,10 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Stop current process
-      run: sudo kill -9 "$(sudo lsof -t -i:80)"
+      run: sudo kill -9 "$(sudo lsof -t -i:80 2>/dev/null)"
 
     - name: Execute Jar File
-      run: sudo java -jar /home/ubuntu/actions-runner/_work/springBootCI01/springBootCI01/target/democi-0.0.1-SNAPSHOT.jar
+      run: sudo java -jar /home/ubuntu/actions-runner/_work/springBootCI01/springBootCI01/target/democi-0.0.1-SNAPSHOT.jar &
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
